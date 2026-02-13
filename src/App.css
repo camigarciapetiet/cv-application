@@ -1,0 +1,51 @@
+h1 {
+  text-align: center;
+}
+
+.app-container {
+  margin: auto;
+  width: 95vw;
+  height: 90vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+}
+
+.cv-form {
+  flex: 1;
+  background-color: #f4f4f4;
+  border: 2px solid red; /* debug visual */
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-weight: 600;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+
+  transition: 0.2s;
+}
+
+.cv-preview {
+  flex: 1;
+  background-color: white;
+  border: 2px solid blue; /* debug visual */
+  padding: 20px;
+  overflow-y: auto;
+}
