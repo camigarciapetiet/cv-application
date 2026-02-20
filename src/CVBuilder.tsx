@@ -37,7 +37,9 @@ export function CVBuilder() {
       },
     }));
   };
-  const handleSummaryChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleSummaryChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
     const { value } = e.target;
 
     setCvData((prev) => ({

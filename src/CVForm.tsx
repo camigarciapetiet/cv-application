@@ -5,7 +5,9 @@ import { SummarySection } from "./SummarySection";
 type Prop = {
   data: CVData;
   onPersonalChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  onSummaryChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onSummaryChange: (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => void;
 };
 
 export function CVForm({ data, onPersonalChange, onSummaryChange }: Prop) {

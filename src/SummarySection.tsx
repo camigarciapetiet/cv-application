@@ -2,7 +2,9 @@ import { CVData } from "./CVBuilder";
 
 type Prop = {
   data: string;
-  setData: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  setData: (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => void;
 };
 
 export function SummarySection({ data, setData }: Prop) {
@@ -10,7 +12,7 @@ export function SummarySection({ data, setData }: Prop) {
     <>
       <div className="form-group">
         <label>Summary</label>
-        <input
+        <textarea
           name="summary"
           value={data}
           onChange={setData}

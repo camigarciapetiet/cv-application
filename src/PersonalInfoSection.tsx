@@ -9,7 +9,7 @@ export function PersonalInfoSection({ data, setData }: Prop) {
   return (
     <>
       <div className="form-group">
-        <label>Name</label>
+        <label>Full Name</label>
         <input
           name="name"
           value={data.name}
