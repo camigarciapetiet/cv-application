@@ -9,9 +9,20 @@ export type PersonalInfo = {
   email: string;
   cell: string;
 };
+
+export type WorkExperience = {
+  title: string;
+  location: string;
+  startDate: string;
+  finishDate: string;
+  description: string;
+};
+
 export type CVData = {
   personalInfo: PersonalInfo;
   summary: string;
+  experience: WorkExperience[];
+  skills: string[];
 };
 
 export function CVBuilder() {
@@ -24,6 +35,8 @@ export function CVBuilder() {
       cell: "",
     },
     summary: "",
+    experience: [],
+    skills: [],
   });
 
   const handlePersonalChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -48,6 +61,22 @@ export function CVBuilder() {
     }));
   };
 
+  const addWorkExperience = (newWork: WorkExperience) => {
+    setCvData((prev) => ({
+      ...prev,
+      experience: [...prev.experience, newWork],
+    }));
+  };
+
+  const addSkill = (newSkill: string) => {
+    if (!newSkill.trim()) return;
+
+    setCvData((prev) => ({
+      ...prev,
+      skills: [...prev.skills, newSkill],
+    }));
+  };
+
   return (
     <>
       <h1>Create your CV</h1>
@@ -56,6 +85,8 @@ export function CVBuilder() {
           data={cvData}
           onPersonalChange={handlePersonalChange}
           onSummaryChange={handleSummaryChange}
+          addSkill={addSkill}
+          addWork={addWorkExperience}
         />
         <CVPreview cv={cvData} />
       </div>

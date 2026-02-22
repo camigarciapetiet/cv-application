@@ -5,19 +5,25 @@ h1 {
 .app-container {
   margin: auto;
   width: 95vw;
-  height: 90vh;
+  height: 89vh;
   display: flex;
   flex-direction: row;
   justify-content: center;
   gap: 10px;
 }
 
+/* styles for the form */
 .cv-form {
   flex: 1;
   background-color: #f4f4f4;
   border: 2px solid red; /* debug visual */
   padding: 20px;
   overflow-y: auto;
+}
+
+.form-section h2 {
+  font-size: 20px;
+  margin: 10px 0px 0px 0px;
 }
 
 .form-group {
@@ -42,7 +48,12 @@ h1 {
 .form-group textarea {
   min-height: 100px;
   resize: vertical;
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
 }
+
+/* styles for the preview */
 
 .cv-preview {
   flex: 1;
@@ -73,4 +84,41 @@ h1 {
 .section-text {
   margin-top: 8px;
   margin-bottom: 10px;
+}
+
+/* styles for work experience */
+.experience-item {
+  margin-bottom: 25px;
+}
+
+.experience-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.experience-header h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.experience-header span {
+  font-size: 14px;
+  color: #666;
+  white-space: nowrap;
+}
+
+.experience-location {
+  margin: 4px 0 8px 0;
+  font-size: 14px;
+  font-style: italic;
+  color: #555;
+}
+
+.experience-description {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
 }
