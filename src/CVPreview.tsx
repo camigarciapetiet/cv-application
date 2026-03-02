@@ -1,5 +1,6 @@
 import { CVData } from "./CVBuilder";
 import { ExperienceItem } from "./ExperienceItem";
+import { EducationItem } from "./EducationItem";
 
 type Prop = {
   cv: CVData;
@@ -21,6 +22,14 @@ export function CVPreview({ cv }: Prop) {
         <div className="subsection">
           <h2 className="section-title">About Me</h2>
           <p className="section-text">{cv.summary}</p>
+        </div>
+      )}
+      {cv.education.length > 0 && (
+        <div className="subsection">
+          <h2 className="section-title">Education</h2>
+          {cv.education.map((education, index) => (
+            <EducationItem education={education} />
+          ))}
         </div>
       )}
       {cv.experience.length > 0 && (

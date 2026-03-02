@@ -18,9 +18,18 @@ export type WorkExperience = {
   description: string;
 };
 
+export type EducationalExperience = {
+  schoolName: string;
+  title: string;
+  description: string;
+  startDate: string;
+  finishDate: string;
+};
+
 export type CVData = {
   personalInfo: PersonalInfo;
   summary: string;
+  education: EducationalExperience[];
   experience: WorkExperience[];
   skills: string[];
 };
@@ -35,6 +44,7 @@ export function CVBuilder() {
       cell: "",
     },
     summary: "",
+    education: [],
     experience: [],
     skills: [],
   });
@@ -58,6 +68,13 @@ export function CVBuilder() {
     setCvData((prev) => ({
       ...prev,
       summary: value,
+    }));
+  };
+
+  const addEducationalExperience = (newEducation: EducationalExperience) => {
+    setCvData((prev) => ({
+      ...prev,
+      education: [...prev.education, newEducation],
     }));
   };
 
@@ -87,6 +104,7 @@ export function CVBuilder() {
           onSummaryChange={handleSummaryChange}
           addSkill={addSkill}
           addWork={addWorkExperience}
+          addEducation={addEducationalExperience}
         />
         <CVPreview cv={cvData} />
       </div>

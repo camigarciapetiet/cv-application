@@ -13,9 +13,7 @@ export function ExperienceItem({ experience }: Props) {
           {experience.startDate} - {experience.finishDate}
         </span>
       </div>
-
       <p className="experience-location">{experience.location}</p>
-
       <p className="experience-description">{experience.description}</p>
     </div>
   );

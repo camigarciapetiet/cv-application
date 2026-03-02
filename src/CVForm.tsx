@@ -1,4 +1,5 @@
-import { CVData, WorkExperience } from "./CVBuilder";
+import { CVData, EducationalExperience, WorkExperience } from "./CVBuilder";
+import { EducationSection } from "./EducationSection";
 import { PersonalInfoSection } from "./PersonalInfoSection";
 import { SkillsSection } from "./SkillsSection";
 import { SummarySection } from "./SummarySection";
@@ -12,6 +13,7 @@ type Prop = {
   ) => void;
   addSkill: (newSkill: string) => void;
   addWork: (newWork: WorkExperience) => void;
+  addEducation: (newEducation: EducationalExperience) => void;
 };
 
 export function CVForm({
@@ -20,6 +22,7 @@ export function CVForm({
   onSummaryChange,
   addSkill,
   addWork,
+  addEducation,
 }: Prop) {
   return (
     <div className="cv-form">
@@ -28,6 +31,7 @@ export function CVForm({
         setData={onPersonalChange}
       />
       <SummarySection data={data.summary} setData={onSummaryChange} />
+      <EducationSection data={data.education} addEducation={addEducation} />
       <WorkSection data={data.experience} addWork={addWork} />
       <SkillsSection skills={data.skills} addSkill={addSkill} />
     </div>

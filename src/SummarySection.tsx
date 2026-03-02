@@ -10,14 +10,16 @@ type Prop = {
 export function SummarySection({ data, setData }: Prop) {
   return (
     <>
-      <div className="form-group">
-        <label>Summary</label>
-        <textarea
-          name="summary"
-          value={data}
-          onChange={setData}
-          placeholder="Write something that summarizes you.."
-        />
+      <div className="form-section">
+        <div className="form-group">
+          <label>Summary</label>
+          <textarea
+            name="summary"
+            value={data}
+            onChange={setData}
+            placeholder="Write something that summarizes you.."
+          />
+        </div>
       </div>
     </>
   );

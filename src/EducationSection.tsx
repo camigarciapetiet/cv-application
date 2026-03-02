@@ -1,60 +1,58 @@
 import { useState } from "react";
-import { WorkExperience } from "./CVBuilder";
-
-type Prop = {
-  data: WorkExperience[];
-  addWork: (work: WorkExperience) => void;
+import { EducationalExperience } from "./CVBuilder";
+type Props = {
+  data: EducationalExperience[];
+  addEducation: (newEducation: EducationalExperience) => void;
 };
 
-export function WorkSection({ data, addWork }: Prop) {
-  const [workInput, setWorkInput] = useState<WorkExperience>({
+export function EducationSection({ data, addEducation }: Props) {
+  const [educationInput, setEducationInput] = useState<EducationalExperience>({
+    schoolName: "",
     title: "",
-    location: "",
+    description: "",
     startDate: "",
     finishDate: "",
-    description: "",
   });
 
   const handleWorkChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
-    setWorkInput((prev) => ({
+    setEducationInput((prev) => ({
       ...prev,
       [name]: value,
     }));
   };
 
   const handleClick = () => {
-    addWork(workInput);
-    setWorkInput({
+    addEducation(educationInput);
+    setEducationInput({
+      schoolName: "",
       title: "",
-      location: "",
+      description: "",
       startDate: "",
       finishDate: "",
-      description: "",
     });
   };
-
   return (
     <>
       <div className="form-section">
-        <h2>Work Experience</h2>
+        <h2>Education</h2>
         <div className="form-group">
-          <label>Title</label>
+          <label>School name or institution</label>
           <input
-            name="title"
-            value={workInput.title}
-            placeholder="Write the work title or position.."
+            name="schoolName"
+            value={educationInput.schoolName}
+            placeholder="Write the school name or institution.."
             onChange={handleWorkChange}
           />
         </div>
         <div className="form-group">
-          <label>Location</label>
+          <label>Title</label>
           <input
-            name="location"
-            value={workInput.location}
-            placeholder="Write the work location.."
+            name="title"
+            value={educationInput.title}
+            placeholder="Write the title of the education.."
             onChange={handleWorkChange}
           />
         </div>
@@ -62,7 +60,7 @@ export function WorkSection({ data, addWork }: Prop) {
           <label>Start date</label>
           <input
             name="startDate"
-            value={workInput.startDate}
+            value={educationInput.startDate}
             placeholder="Specify the date when you started.."
             onChange={handleWorkChange}
           />
@@ -71,7 +69,7 @@ export function WorkSection({ data, addWork }: Prop) {
           <label>Finish date</label>
           <input
             name="finishDate"
-            value={workInput.finishDate}
+            value={educationInput.finishDate}
             placeholder="Specify the date when you finished or present.."
             onChange={handleWorkChange}
           />
@@ -80,9 +78,9 @@ export function WorkSection({ data, addWork }: Prop) {
           <label>Description</label>
           <textarea
             name="description"
-            value={workInput.description}
+            value={educationInput.description}
             onChange={handleWorkChange}
-            placeholder="Write something that summarizes your work.."
+            placeholder="Write a description.."
           />
         </div>
         <button onClick={() => handleClick()}>Add</button>
