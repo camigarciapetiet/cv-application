@@ -12,6 +12,7 @@ type Prop = {
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => void;
   addSkill: (newSkill: string) => void;
+  deleteSkill: (deleteSkill: string) => void;
   addWork: (newWork: WorkExperience) => void;
   addEducation: (newEducation: EducationalExperience) => void;
 };
@@ -21,6 +22,7 @@ export function CVForm({
   onPersonalChange,
   onSummaryChange,
   addSkill,
+  deleteSkill,
   addWork,
   addEducation,
 }: Prop) {
@@ -33,7 +35,11 @@ export function CVForm({
       <SummarySection data={data.summary} setData={onSummaryChange} />
       <EducationSection data={data.education} addEducation={addEducation} />
       <WorkSection data={data.experience} addWork={addWork} />
-      <SkillsSection skills={data.skills} addSkill={addSkill} />
+      <SkillsSection
+        skills={data.skills}
+        addSkill={addSkill}
+        deleteSkill={deleteSkill}
+      />
     </div>
   );
 }

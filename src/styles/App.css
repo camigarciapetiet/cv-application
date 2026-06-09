@@ -225,3 +225,54 @@ button:focus-visible {
   line-height: 1.6;
   color: #111827;
 }
+
+/*Skill list*/
+.skills-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+.skill-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.6rem 0.75rem;
+  margin-bottom: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: #f9f9f9;
+}
+
+.skill-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.skill-delete {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  box-shadow: none;
+  font-size: 0.85rem;
+  line-height: 1;
+  color: #9ca3af;
+  cursor: pointer;
+}
+
+.skill-delete:hover {
+  color: #e11d48;
+  background: rgba(225, 29, 72, 0.08);
+  transform: none;
+  box-shadow: none;
+  filter: none;
+}

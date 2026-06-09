@@ -94,6 +94,13 @@ export function CVBuilder() {
     }));
   };
 
+  const handleDeleteSkill = (deleteSkill: string) => {
+    setCvData((prev) => ({
+      ...prev,
+      skills: prev.skills.filter((skill) => skill !== deleteSkill),
+    }));
+  };
+
   return (
     <>
       <h1>Create your CV</h1>
@@ -103,6 +110,7 @@ export function CVBuilder() {
           onPersonalChange={handlePersonalChange}
           onSummaryChange={handleSummaryChange}
           addSkill={addSkill}
+          deleteSkill={handleDeleteSkill}
           addWork={addWorkExperience}
           addEducation={addEducationalExperience}
         />

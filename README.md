@@ -1,16 +1,92 @@
-# React + Vite
+# CV Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A lightweight resume builder built with React and Vite. Fill in your details on the left and see a live preview on the right as your CV takes shape.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Live preview** — Changes in the form update the preview instantly.
+- **Structured sections** — Personal info, summary, education, work experience, and skills.
+- **Split layout** — Form and preview side by side for a clear editing experience.
+- **Component-based** — Each section is its own React component for easy maintenance and extension.
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- [React 19](https://react.dev/)
+- [Vite 7](https://vite.dev/)
+- TypeScript (`.tsx` components)
+- Plain CSS for styling
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) (v18 or later recommended)
+
+### Installation
+
+```bash
+npm install
+```
+
+### Development
+
+```bash
+npm run dev
+```
+
+Open the URL shown in the terminal (usually `http://localhost:5173`).
+
+### Production Build
+
+```bash
+npm run build
+```
+
+### Preview Production Build
+
+```bash
+npm run preview
+```
+
+### Lint
+
+```bash
+npm run lint
+```
+
+## Project Structure
+
+```
+src/
+├── CVBuilder.tsx        # Main state and layout (form + preview)
+├── CVForm.tsx           # Form container
+├── CVPreview.tsx        # Live CV preview
+├── PersonalInfoSection.tsx
+├── SummarySection.tsx
+├── EducationSection.tsx
+├── EducationItem.tsx
+├── WorkSection.tsx
+├── ExperienceItem.tsx
+├── SkillsSection.tsx
+├── App.jsx              # App entry component
+├── main.jsx             # React DOM mount
+└── styles/
+    ├── App.css          # Layout and component styles
+    └── index.css        # Global base styles
+```
+
+## How It Works
+
+`CVBuilder` holds all CV data in a single React state object (`CVData`). The form components update that state through callbacks, and `CVPreview` renders the current data in a resume-style layout.
+
+| Section        | Form component          | Preview component   |
+| -------------- | ----------------------- | ------------------- |
+| Personal info  | `PersonalInfoSection`   | Header in preview   |
+| Summary        | `SummarySection`        | About Me            |
+| Education      | `EducationSection`      | `EducationItem`     |
+| Work           | `WorkSection`           | `ExperienceItem`    |
+| Skills         | `SkillsSection`         | Skills list         |
+
+## License
+
+Private project.

@@ -1,4 +1,4 @@
-import "./App.css";
+import "./styles/App.css";
 import { CVBuilder } from "./CVBuilder";
 
 function App() {

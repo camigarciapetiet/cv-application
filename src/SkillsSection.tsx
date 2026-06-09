@@ -3,9 +3,10 @@ import { useState } from "react";
 type Prop = {
   skills: string[];
   addSkill: (newSkill: string) => void;
+  deleteSkill: (deleteSkill: string) => void;
 };
 
-export function SkillsSection({ skills, addSkill }: Prop) {
+export function SkillsSection({ skills, addSkill, deleteSkill }: Prop) {
   const [skillInput, setSkillInput] = useState<string>("");
 
   const handleSkillInput = (
@@ -33,6 +34,21 @@ export function SkillsSection({ skills, addSkill }: Prop) {
           />
         </div>
         <button onClick={() => handleClick()}>Add</button>
+        <ul className="skills-list">
+          {skills.map((skill, index) => (
+            <li key={index} className="skill-item">
+              <span className="skill-text">{skill}</span>
+              <button
+                type="button"
+                className="skill-delete"
+                onClick={() => deleteSkill(skill)}
+                aria-label={`Remove ${skill}`}
+              >
+                ×
+              </button>
+            </li>
+          ))}
+        </ul>
       </div>
     </>
   );
